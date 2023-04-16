@@ -72,3 +72,7 @@ gem "factory_bot_rails", "~> 6.2", :groups => [:test, :development]
 gem "rspec-rails", "~> 6.0", :groups => [:test, :development]
 
 gem "devise", "~> 4.9"
+
+gem "omniauth", "~> 2.1"
+
+gem "omniauth-github", "~> 2.0"
