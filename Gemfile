@@ -75,4 +75,8 @@ gem "devise", "~> 4.9"
 
 gem "omniauth", "~> 2.1"
 
-gem "omniauth-github", "~> 2.0"
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+
+gem "dotenv-rails", "~> 2.8"
+
+gem "omniauth-rails_csrf_protection", "~> 1.0"
