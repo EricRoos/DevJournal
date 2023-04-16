@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    uuid { "MyString" }
-    source { "MyString" }
+    uuid { SecureRandom.uuid }
+    source { "local" }
   end
 end

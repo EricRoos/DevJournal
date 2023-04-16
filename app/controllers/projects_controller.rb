@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
 
   # POST /projects or /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = Project.new(project_params.merge(user: current_user))
 
     respond_to do |format|
       if @project.save
@@ -65,6 +65,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:user_id, :title, :description)
+      params.require(:project).permit(:title, :description)
     end
 end
