@@ -14,15 +14,24 @@ require 'rails_helper'
 
 RSpec.describe "/projects", type: :request do
   let(:current_user) { FactoryBot.create(:user) } 
+  before do
+    sign_in current_user
+  end
   # This should return the minimal set of attributes required to create a valid
   # Project. As you add validations to Project, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    FactoryBot.attributes_for(:project).merge(user: FactoryBot.create(:user))
+    api_attributes.merge(user: FactoryBot.create(:user))
+  }
+
+  let(:api_attributes){
+    FactoryBot.attributes_for(:project)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    valid_attributes.dup.tap do |attrs|
+      attrs[:title] = ""
+    end
   }
 
   describe "GET /index" do
@@ -60,12 +69,12 @@ RSpec.describe "/projects", type: :request do
     context "with valid parameters" do
       it "creates a new Project" do
         expect {
-          post projects_url, params: { project: valid_attributes }
+          post projects_url, params: { project: api_attributes }
         }.to change(Project.where(user: current_user), :count).by(1)
       end
 
       it "redirects to the created project" do
-        post projects_url, params: { project: valid_attributes }
+        post projects_url, params: { project: api_attributes }
         expect(response).to redirect_to(project_url(Project.last))
       end
     end
