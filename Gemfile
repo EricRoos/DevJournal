@@ -80,3 +80,5 @@ gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem "dotenv-rails", "~> 2.8"
 
 gem "omniauth-rails_csrf_protection", "~> 1.0"
+
+gem "capybara", "~> 3.39", :group => :test
