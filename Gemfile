@@ -82,3 +82,7 @@ gem "dotenv-rails", "~> 2.8"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "capybara", "~> 3.39", :group => :test
+
+gem "guard", "~> 2.18", :groups => [:development, :test]
+gem "guard-rspec", "~> 4.7", :groups => [:development, :test]
+gem "guard-livereload", "~> 2.5", :groups => [:development, :test]
