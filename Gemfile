@@ -98,3 +98,5 @@ gem "ed25519", "~> 1.3", :group => :development
 
 gem "bcrypt_pbkdf", "~> 1.1", :group => :development
 
+
+gem "dalli", "~> 3.2"
