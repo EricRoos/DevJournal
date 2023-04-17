@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.2"
 
-set :application, "my_app_name"
+set :application, "dev_journal"
 set :repo_url, "git@github.com:EricRoos/DevJournal.git"
 
 # Default branch is :master

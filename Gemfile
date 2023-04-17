@@ -12,7 +12,7 @@ gem "sprockets-rails"
 # Use mysql as the database for Active Record
 gem "mysql2", "~> 0.5"
 
-# Use the Puma web server [https://github.com/puma/puma]
+# Use the Puma web server [https://github.com/puma/puma],
 gem "puma", "~> 5.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -62,6 +62,7 @@ group :development do
   gem "capistrano", "~> 3.10", require: false
   gem "capistrano-rails", "~> 1.6", require: false
   gem "capistrano-bundler", require: false
+  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
   #gem "capistrano/rails/migrations", require: false
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
@@ -96,3 +97,4 @@ gem "pundit", "~> 2.3"
 gem "ed25519", "~> 1.3", :group => :development
 
 gem "bcrypt_pbkdf", "~> 1.1", :group => :development
+
