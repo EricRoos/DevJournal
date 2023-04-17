@@ -30,19 +30,23 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/rbenv"
 # require "capistrano/chruby"
 require "capistrano/bundler"
+require "capistrano/rails/assets"
 task :buildtailwind do
-  on roles(:web) do
-    run "bin/rails tailwindcss:build"
+  on roles(:app) do
+    execute "cd '#{release_path}';bin/rails tailwindcss:build"
   end
 end
 
-require "capistrano/rails/assets"
+before  'deploy:assets:precompile', :buildtailwind
+
 require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 
+set :puma_user, 'dev'
+set :systemctl_user, :system
 require 'capistrano/puma'
 install_plugin Capistrano::Puma  # Default puma tasks
 install_plugin Capistrano::Puma::Systemd
