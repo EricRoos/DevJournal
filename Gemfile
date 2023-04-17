@@ -59,6 +59,10 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-rails", "~> 1.6", require: false
+  gem "capistrano-bundler", require: false
+  #gem "capistrano/rails/migrations", require: false
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -88,3 +92,7 @@ gem "guard-rspec", "~> 4.7", :groups => [:development, :test]
 gem "guard-livereload", "~> 2.5", :groups => [:development, :test]
 
 gem "pundit", "~> 2.3"
+
+gem "ed25519", "~> 1.3", :group => :development
+
+gem "bcrypt_pbkdf", "~> 1.1", :group => :development
