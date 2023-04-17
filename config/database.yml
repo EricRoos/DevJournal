@@ -50,6 +50,7 @@ test:
 #
 production:
   <<: *default
+  database: dev_journal_production
   ssl_mode: :verify_identity
   sslca: /etc/ssl/certs/ca-certificates.crt
   url: <%= ENV["DATABASE_URL"] %>
