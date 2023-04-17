@@ -25,7 +25,7 @@ set :deploy_to, "/home/dev/dev/dev_journal"
 append :linked_files, ".env.production"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "vendor/javascript", "storage"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "storage"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
