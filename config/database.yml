@@ -50,5 +50,6 @@ test:
 #
 production:
   <<: *default
-  sslmode: require
+  ssl_mode: :verify_identity
+  sslca: /etc/ssl/certs/ca-certificates.crt
   url: <%= ENV["DATABASE_URL"] %>
