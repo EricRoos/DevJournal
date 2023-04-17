@@ -22,10 +22,10 @@ set :deploy_to, "/home/dev/dev/dev_journal"
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, ".env.production"
+#append :linked_files, ".env.production"
 
 # Default value for linked_dirs is []
-# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "storage"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "storage", ".env.production"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
