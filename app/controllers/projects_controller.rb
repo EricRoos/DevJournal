@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
 
   # POST /projects or /projects.json
   def create
+    authorize Project
     @project = Project.new(project_params.merge(user: current_user))
 
     respond_to do |format|

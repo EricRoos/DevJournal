@@ -8,7 +8,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    @user.present?
   end
 
   def new?

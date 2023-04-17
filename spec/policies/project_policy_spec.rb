@@ -2,26 +2,33 @@ require 'rails_helper'
 
 RSpec.describe ProjectPolicy, type: :policy do
   let(:user) { User.new }
-
+  let(:project) { FactoryBot.create(:project, user: ) }
   subject { described_class }
 
   permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+    let!(:user_projects) { FactoryBot.create_list(:project, 3, user: ) }
+    before do
+      FactoryBot.create_list(:project,3)
+    end
+
+    subject { ProjectPolicy::Scope.new(user, Project).resolve }
+    it { is_expected.to eq user_projects }
+    it { is_expected.to_not eq Project.all }
   end
 
   permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit(user, project) }
+    it { is_expected.to permit(nil, project) }
   end
 
   permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit(user, nil) }
+    it { is_expected.to_not permit(nil, nil) }
   end
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  permissions :update?, :destroy? do
+    it { is_expected.to permit(user, project) }
+    it { is_expected.to_not permit(FactoryBot.create(:user), project) }
   end
 
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
 end

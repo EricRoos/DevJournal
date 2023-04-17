@@ -21,7 +21,7 @@ RSpec.describe "/projects", type: :request do
   # Project. As you add validations to Project, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    api_attributes.merge(user: FactoryBot.create(:user))
+    api_attributes.merge(user: current_user)
   }
 
   let(:api_attributes){
@@ -98,14 +98,14 @@ RSpec.describe "/projects", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { "title": "new name" }
       }
 
       it "updates the requested project" do
         project = Project.create! valid_attributes
         patch project_url(project), params: { project: new_attributes }
         project.reload
-        skip("Add assertions for updated state")
+        expect(project).to have_attributes(new_attributes)
       end
 
       it "redirects to the project" do
