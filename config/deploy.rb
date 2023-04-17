@@ -2,13 +2,14 @@
 lock "~> 3.17.2"
 
 set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :repo_url, "git@github.com:EricRoos/DevJournal.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, "/var/www/my_app_name"
+set :branch, "main"
+set :deploy_to, "/home/dev/dev/dev_journal"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -21,7 +22,7 @@ set :repo_url, "git@example.com:me/my_repo.git"
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml", 'config/master.key'
+append :linked_files, ".env.production"
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "storage"

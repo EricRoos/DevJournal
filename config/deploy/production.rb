@@ -59,3 +59,5 @@ set :ssh_options, {
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+#
+set :default_env, { path: "$PATH:/opt/ruby-build-out/3.1/bin" }

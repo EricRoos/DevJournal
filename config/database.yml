@@ -50,6 +50,5 @@ test:
 #
 production:
   <<: *default
-  database: dev_journal_production
-  username: dev_journal
-  password: <%= ENV["DEV_JOURNAL_DATABASE_PASSWORD"] %>
+  sslmode: require
+  url: <%= ENV["DATABASE_URL"] %>
