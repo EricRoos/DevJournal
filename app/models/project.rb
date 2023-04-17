@@ -14,7 +14,7 @@ class Project < ApplicationRecord
     if !updated_at
       project = Project.find(id)
       updated_at = project.updated_at
-      project.updated_cache_keys
+      project.update_cache_keys
     end
 
     Rails.cache.fetch([Project, :cached, id, updated_at]) do
