@@ -100,3 +100,5 @@ gem "bcrypt_pbkdf", "~> 1.1", :group => :development
 
 
 gem "dalli", "~> 3.2"
+
+gem "connection_pool", "~> 2.4"
