@@ -30,5 +30,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_190945) do
     t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
-  add_foreign_key "projects", "users"
 end
