@@ -9,7 +9,7 @@ if(document.getElementById('editorjs')){
      * Id of Element that should contain Editor instance
      */
     holder: 'editorjs',
-    autofocus: false,
+    autofocus: true,
     tools: {
       header: Header,
       checklist: {
