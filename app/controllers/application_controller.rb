@@ -4,13 +4,17 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, unless: -> { devise_controller? }
 
   def current_user
-    warden_key = session["warden.user.user.key"].first.first
-    session_id = session["session_id"]
+    begin
+      warden_key = session["warden.user.user.key"].first.first
+      session_id = session["session_id"]
+    rescue
+      @current_user = nil
+      return @current_user
+    end
     @current_user ||= Rails.cache.fetch([warden_key, session_id]) do
       User.cached_find(warden_key)
     end
-  rescue
-    super
+    @current_user
   end
 
 

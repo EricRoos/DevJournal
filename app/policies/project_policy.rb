@@ -16,7 +16,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def update?
-    @user == @record.user
+    @user.id == @record.user_id
   end
 
   def edit?
