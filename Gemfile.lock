@@ -172,6 +172,8 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     hashie (5.0.0)
+    heroicon (1.0.0)
+      rails (>= 5.2)
     http_parser.rb (0.8.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -377,6 +379,7 @@ DEPENDENCIES
   guard (~> 2.18)
   guard-livereload (~> 2.5)
   guard-rspec (~> 4.7)
+  heroicon (~> 1.0)
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)
