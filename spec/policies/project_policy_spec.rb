@@ -18,7 +18,6 @@ RSpec.describe ProjectPolicy, type: :policy do
 
   permissions :show? do
     it { is_expected.to permit(user, project) }
-    it { is_expected.to permit(nil, project) }
   end
 
   permissions :create? do

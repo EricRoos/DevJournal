@@ -1,10 +1,10 @@
 class ProjectPolicy < ApplicationPolicy
   def index?
-    true
+    @user.present?
   end
 
   def show?
-    true
+    owns_resource?
   end
 
   def create?
@@ -16,7 +16,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def update?
-    @user.id == @record.user_id
+    owns_resource?
   end
 
   def edit?
@@ -27,6 +27,12 @@ class ProjectPolicy < ApplicationPolicy
     update?
   end
 
+  protected
+
+  def owns_resource?
+    return false if @user.nil?
+    @user.id == @record.user_id
+  end
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
