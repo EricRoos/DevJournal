@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <nav class="container mx-auto px-5 flex pt-5">
+    <nav class="container mx-auto px-5 flex pt-8">
       <% unless devise_controller? %>
         <% if current_user %>
           <%= button_to 'Sign out', destroy_user_session_path, method: :delete, form_class: 'ml-auto' %>
@@ -24,7 +24,7 @@
         <% end %>
       <% end %>
     </nav>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto mt-24 px-5 flex">
       <%= yield %>
     </main>
   </body>
