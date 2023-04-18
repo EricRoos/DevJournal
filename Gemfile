@@ -104,3 +104,5 @@ gem "dalli", "~> 3.2"
 gem "connection_pool", "~> 2.4"
 
 gem "heroicon", "~> 1.0"
+
+gem "breadcrumbs_on_rails", "~> 4.1"

@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
+  before_action :set_breadcrumbs, only: %i[ show edit ]
   before_action :set_project, only: %i[ show edit update destroy ]
+
 
   # GET /projects or /projects.json
   def index
@@ -62,9 +64,15 @@ class ProjectsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    
+    def set_breadcrumbs
+      add_breadcrumb "Projects", projects_path
+    end
+
     def set_project
       @project = Project.cached_find(params[:id])
       authorize @project
+      add_breadcrumb @project.title, project_path(@project)
     end
 
     # Only allow a list of trusted parameters through.
