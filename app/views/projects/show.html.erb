@@ -30,6 +30,12 @@
                   <%= heroicon 'pencil' %>  Edit
                 </div>
               <% end %>
+              <%= link_to project_features_path(@project), class: "text-gray-700 block px-4 py-2 text-sm",role:"menuitem",tabindex:"-1" do %>
+                <div class='flex items-center gap-4'>
+                  <%= heroicon 'clipboard-document-list' %>  Features
+                </div>
+              <% end %>
+              <hr class='mb-4'/>
               <%= button_to project_path(@project), method: :delete, class: "text-gray-700 block px-4 py-2 text-sm" do %>
                 <div class='flex items-center gap-4'>
                   <span class='text-red-500'><%= heroicon 'trash' %></span>  Destroy

@@ -1,5 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
+  has_many :features
+
   validates_presence_of :user, :title
   after_commit :update_cache_keys, on: :update
 
