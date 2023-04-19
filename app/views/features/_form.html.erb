@@ -1,4 +1,4 @@
-<%= form_with(model: [@project, feature], class: "contents") do |form| %>
+<%= form_with(model: [@project, feature], class: "contents w-full") do |form| %>
   <% if feature.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(feature.errors.count, "error") %> prohibited this feature from being saved:</h2>
@@ -12,16 +12,34 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :status %>
-    <%= form.select :status, options_for_select(Feature.statuses.map {|key, value| [key.titleize, Feature.statuses.key(value)]}, feature.status), class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
     <%= form.label :title %>
     <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class="my-5">
+    <div>
+      <%= form.label :status %>
+    </div>
+    <%= form.select :status, options_for_select(Feature.statuses.map {|key, value| [key.titleize, Feature.statuses.key(value)]}, feature.status), class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+
+  <div class='flex justify-between gap-4 my-5'>
+    <%= form.label :size_small, class: 'w-1/3 flex flex-col items-center border border-solid border-gray-200 border-rounded p-2 rounded shadow' do %>
+      S
+      <%= form.radio_button :size, :small %>
+    <% end %>
+    <%= form.label :size_medium, class: 'w-1/3 flex flex-col items-center border border-solid border-gray-200 border-rounded p-2 rounded shadow' do %>
+      M
+      <%= form.radio_button :size, :medium %>
+    <% end %>
+    <%= form.label :size_large, class: 'w-1/3 flex flex-col items-center border border-solid border-gray-200 border-rounded p-2 rounded shadow' do %>
+      L
+      <%= form.radio_button :size, :large %>
+    <% end %>
+  </div>
+
+  <div class='flex justify-between gap-4 my-5 w-full my-5'>
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer w-full" %>
   </div>
 <% end %>

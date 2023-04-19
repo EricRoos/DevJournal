@@ -5,5 +5,11 @@ class Feature < ApplicationRecord
     complete: "complete"
   }
 
+  enum size: {
+    small: "small",
+    medium: "medium",
+    large: "large",
+  }
+
   belongs_to :project
 end
