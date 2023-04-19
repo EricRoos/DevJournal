@@ -12,6 +12,3 @@
 
 */
 
-label:has(input){
-  background-color: red;
-}
