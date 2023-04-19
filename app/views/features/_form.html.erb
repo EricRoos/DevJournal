@@ -20,7 +20,7 @@
     <div>
       <%= form.label :status %>
     </div>
-    <%= form.select :status, options_for_select(Feature.statuses.map {|key, value| [key.titleize, Feature.statuses.key(value)]}, feature.status), class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :status, options_for_select(Feature.statuses.map {|key, value| [key.titleize, Feature.statuses.key(value)]}, feature.status),{}, { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"} %>
   </div>
 
 
