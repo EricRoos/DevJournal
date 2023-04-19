@@ -71,7 +71,7 @@ class FeaturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def feature_params
-      params.require(:feature).permit(:project_id, :status, :title)
+      params.require(:feature).permit(:status, :title)
     end
 
     def set_project
