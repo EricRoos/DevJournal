@@ -20,6 +20,7 @@ class FeaturesController < ApplicationController
 
   # GET /features/1/edit
   def edit
+    add_breadcrumb "Editing", "#"
   end
 
   # POST /features or /features.json
@@ -64,6 +65,8 @@ class FeaturesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_feature
       @feature = @project.features.find(params[:id])
+      add_breadcrumb "Features", project_features_path(@feature.project)
+      add_breadcrumb @feature.title, project_feature_path(@feature.project, @feature)
     end
 
     # Only allow a list of trusted parameters through.

@@ -3,13 +3,16 @@
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
+    <%= render partial: 'layouts/breadcrumbs' %>
+    <hr class='my-4'/>
 
-    <%= render @feature %>
+    <ul>
+      <%= render @feature %>
+    </ul>
 
-    <%= link_to 'Edit this feature', edit_project_feature_path(@project, @feature), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this feature', project_feature_path(@project, @feature), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    <div class='grid grid-cols-1 gap-4'>
+    <%= link_to 'Edit', edit_project_feature_path(@project, @feature), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium block" %>
+    <%= button_to 'Destroy', project_feature_path(@project, @feature), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-300 font-bold text-white w-full text-left" %>
     </div>
-    <%= link_to 'Back to features', project_features_path(@project), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>
